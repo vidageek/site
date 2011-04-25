@@ -1,0 +1,5 @@
+copiar da pasta pages para output
+fragmentos especiais: header.html e footer.html
+adicionar suporte para fragmentos de páginas
+declaração de variáveis no começo do arquivo .html (Title:, Author:,  etc)
+gerar rss com base na variável (Date:)
