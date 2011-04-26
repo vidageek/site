@@ -1,0 +1,9 @@
+#! /bin/bash
+
+ROOT=$PWD;
+
+echo "cleaning up/creating output dir"
+rm -fr $ROOT/output
+mkdir $ROOT/output
+
+cp -rvf $ROOT/pages/* $ROOT/output
