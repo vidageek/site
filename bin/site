@@ -1,9 +1,22 @@
 #! /bin/bash
 
 ROOT=$PWD;
+FRAGMENTS=$ROOT/fragments;
+OUTPUT=$ROOT/output;
 
 echo "cleaning up/creating output dir"
-rm -fr $ROOT/output
-mkdir $ROOT/output
+rm -fr $OUTPUT
+mkdir $OUTPUT
 
-cp -rvf $ROOT/pages/* $ROOT/output
+echo "copying files to output dir"
+cp -rf $ROOT/pages/* $OUTPUT
+
+echo "adding footer and header to each file"
+for X in `find $OUTPUT -iname *.html`; do
+	mv $X $X.2
+	cat $FRAGMENTS/header.html > $X;
+	cat $X.2 >> $X;
+	cat $FRAGMENTS/footer.html >> $X;
+	rm -f $X.2;
+done;
+
